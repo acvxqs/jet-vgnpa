@@ -4,7 +4,7 @@ namespace App\Actions\Jetstream;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
-use Acvxqs\JetstreamVgnpaDashboard\Contracts\UpdatesTeamDashboard;
+use Acvxqs\JetVgnpa\Contracts\UpdatesTeamDashboard;
 
 class UpdateTeamDashboard implements UpdatesTeamDashboard
 {
