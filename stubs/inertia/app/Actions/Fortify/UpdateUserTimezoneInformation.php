@@ -19,7 +19,7 @@ class UpdateUserTimezoneInformation implements UpdatesUserTimezoneInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'timezone' => ['required'],
+            'timezone' => ['required', 'string'],
         ])->validateWithBag('updateTimezoneInformation');
 
         $user->forceFill([

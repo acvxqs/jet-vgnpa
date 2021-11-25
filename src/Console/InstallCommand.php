@@ -42,6 +42,7 @@ class InstallCommand extends Command
         
         // Models...
         copy(__DIR__.'/../../stubs/inertia/app/Models/Team.php', app_path('Models/Team.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Models/User.php', app_path('Models/User.php'));
 
         (new Process(['php', 'artisan', 'view:clear'], base_path()))
                 ->setTimeout(null)
