@@ -32,10 +32,12 @@ class InstallCommand extends Command
         // Publish...
         $this->callSilent('vendor:publish', ['--tag' => 'jet-vgnpa-assets', '--force' => true]);
 
+        (new Filesystem)->ensureDirectoryExists(app_path('Actions/Fortify'));
         (new Filesystem)->ensureDirectoryExists(app_path('Actions/Jetstream'));
         (new Filesystem)->ensureDirectoryExists(app_path('Models'));
 
         // Actions...
+        copy(__DIR__.'/../../stubs/inertia/app/Actions/Fortify/UpdateUserTimezoneInformation.php', app_path('Actions/Fortify/UpdateUserTimezoneInformation.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Actions/Jetstream/UpdateTeamDashboard.php', app_path('Actions/Jetstream/UpdateTeamDashboard.php'));
         
         // Models...

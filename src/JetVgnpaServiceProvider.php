@@ -2,10 +2,12 @@
 
 namespace Acvxqs\JetVgnpa;
 
-use Illuminate\Support\ServiceProvider;
 use Acvxqs\JetVgnpa\Console\InstallCommand;
 use Acvxqs\JetVgnpa\Contracts\UpdatesTeamDashboard;
+use Acvxqs\JetVgnpa\UpdatesUserTimezoneInformation;
+use App\Actions\Fortify\UpdateUserTimezoneInformation;
 use App\Actions\Jetstream\UpdateTeamDashboard;
+use Illuminate\Support\ServiceProvider;
 
 class JetVgnpaServiceProvider extends ServiceProvider
 {
@@ -30,6 +32,7 @@ class JetVgnpaServiceProvider extends ServiceProvider
         $this->configurePublishing();
 
         $this->app->singleton(UpdatesTeamDashboard::class, UpdateTeamDashboard::class);
+        $this->app->singleton(UpdatesUserTimezoneInformation::class, UpdateUserTimezoneInformation::class);
     }
 
     protected function configurePublishing()
@@ -40,21 +43,33 @@ class JetVgnpaServiceProvider extends ServiceProvider
 
         $this->publishes([
             
-            // Dashboard
+            // Jetstream components
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/Textarea.vue' => resource_path('js/Jetstream/Textarea.vue'),
+            __DIR__.'/../stubs/inertia/resources/js/Jetstream/Timezone.vue' => resource_path('js/Jetstream/Timezone.vue'),
 
-            __DIR__.'/../stubs/inertia/resources/js/Pages/Dashboard.vue' => resource_path('js/Pages/Dashboard.vue'),
-
-            // Dashboard - migrations
-            __DIR__.'/../database/migrations/2021_11_25_170417_add_dashboard_to_teams.php' => database_path('migrations/2021_11_25_170417_add_dashboard_to_teams.php'),
-
-            __DIR__.'/../stubs/inertia/resources/js/Pages/Teams/Show.vue' => resource_path('js/Pages/Teams/Show.vue'),
-            __DIR__.'/../stubs/inertia/resources/js/Pages/Teams/Partials/UpdateTeamDashboardForm.vue' => resource_path('js/Pages/Teams/Partials/UpdateTeamDashboardForm.vue'),
-
-            // Logo
+            // Jetstream components - logo
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/ApplicationLogo.vue' => resource_path('js/Jetstream/ApplicationLogo.vue'),
             __DIR__.'/../stubs/inertia//resources/js/Jetstream/ApplicationMark.vue' => resource_path('js/Jetstream/ApplicationMark.vue'),
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/AuthenticationCardLogo.vue' => resource_path('js/Jetstream/AuthenticationCardLogo.vue'),
+
+            // Pages
+            __DIR__.'/../stubs/inertia/resources/js/Pages/Dashboard.vue' => resource_path('js/Pages/Dashboard.vue'),
+
+            // Pages - Profile
+            __DIR__.'/../stubs/inertia/resources/js/Pages/Profile/Show.vue' => resource_path('js/Pages/Profile/Show.vue'),
+
+            // Pages - Profile Partials
+            __DIR__.'/../stubs/inertia/resources/js/Pages/Profile/Partials/UpdateProfileTimezoneForm.vue' => resource_path('js/Pages/Profile/Partials/UpdateProfileTimezoneForm.vue'),
+
+            // Pages - Teams
+            __DIR__.'/../stubs/inertia/resources/js/Pages/Teams/Show.vue' => resource_path('js/Pages/Teams/Show.vue'),
+
+            // Pages - Teams Partials
+            __DIR__.'/../stubs/inertia/resources/js/Pages/Teams/Partials/UpdateTeamDashboardForm.vue' => resource_path('js/Pages/Teams/Partials/UpdateTeamDashboardForm.vue'),
+
+            //  Migrations
+            __DIR__.'/../database/migrations/2021_11_25_170417_add_dashboard_to_teams.php' => database_path('migrations/2021_11_25_170417_add_dashboard_to_teams.php'),
+            __DIR__.'/../database/migrations/2021_11_25_182418_add_timezone_to_users.php' => database_path('migrations/2021_11_25_182418_add_timezone_to_users.php'),            
 
             // Routes
             __DIR__.'/../stubs/inertia/routes/web.php' => base_path('routes/web.php'),

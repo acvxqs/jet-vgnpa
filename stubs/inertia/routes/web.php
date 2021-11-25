@@ -18,4 +18,5 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     Route::get('/dashboard', [ Acvxqs\JetVgnpa\Http\Controllers\DashboardController::class, 'show' ])->name('dashboard');
     Route::put('/teams/{team}/dashboard', [ Acvxqs\JetVgnpa\Http\Controllers\DashboardController::class, 'update' ])->name('team-dashboard.update');
+    Route::put('user/timezone-information', [ App\Http\Controllers\UserProfileTimezone::class , 'update' ])->name('user-profile-timezone.update');
 });
