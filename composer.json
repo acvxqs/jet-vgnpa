@@ -8,6 +8,13 @@
             "Acvxqs\\JetVgnpa\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Acvxqs\\JetVgnpa\\JetVgnpaServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "Sven Roelse",
