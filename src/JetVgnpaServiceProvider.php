@@ -4,7 +4,7 @@ namespace Acvxqs\JetVgnpa;
 
 use Acvxqs\JetVgnpa\Console\InstallCommand;
 use Acvxqs\JetVgnpa\Contracts\UpdatesTeamDashboard;
-use Acvxqs\JetVgnpa\UpdatesUserTimezoneInformation;
+use Acvxqs\JetVgnpa\Contracts\UpdatesUserTimezoneInformation;
 use App\Actions\Fortify\UpdateUserTimezoneInformation;
 use App\Actions\Jetstream\UpdateTeamDashboard;
 use Illuminate\Support\ServiceProvider;
