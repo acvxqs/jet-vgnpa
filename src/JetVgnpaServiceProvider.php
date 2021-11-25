@@ -3,7 +3,7 @@
 namespace Acvxqs\JetVgnpa;
 
 use Illuminate\Support\ServiceProvider;
-use Acvxqs\JetstreamVgnpaLogo\Console\InstallCommand;
+use Acvxqs\JetVgnpa\Console\InstallCommand;
 use Acvxqs\JetVgnpa\Contracts\UpdatesTeamDashboard;
 use App\Actions\Jetstream\UpdateTeamDashboard;
 
