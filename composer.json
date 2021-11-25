@@ -1,0 +1,19 @@
+{
+    "name": "acvxqs/jet-vgnpa",
+    "description": "VGNPA Jetstream Inertia Package",
+    "type": "library",
+    "license": "CC0",
+    "autoload": {
+        "psr-4": {
+            "Acvxqs\\JetVgnpa\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sven Roelse",
+            "email": "acvxqs@icloud.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
