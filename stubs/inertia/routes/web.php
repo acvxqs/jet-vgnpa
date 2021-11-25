@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/login');
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
-    Route::get('/dashboard', [ Acvxqs\JetstreamVgnpaDashboard\Http\Controllers\DashboardController::class, 'show' ])->name('dashboard');
-    Route::put('/teams/{team}/dashboard', [ Acvxqs\JetstreamVgnpaDashboard\Http\Controllers\DashboardController::class, 'update' ])->name('team-dashboard.update');
+    Route::get('/dashboard', [ Acvxqs\JetVgnpa\Http\Controllers\DashboardController::class, 'show' ])->name('dashboard');
+    Route::put('/teams/{team}/dashboard', [ Acvxqs\JetVgnpa\Http\Controllers\DashboardController::class, 'update' ])->name('team-dashboard.update');
 });
