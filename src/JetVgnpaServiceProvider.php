@@ -52,9 +52,9 @@ class JetVgnpaServiceProvider extends ServiceProvider
             __DIR__.'/../stubs/inertia/resources/js/Pages/Teams/Partials/UpdateTeamDashboardForm.vue' => resource_path('js/Pages/Teams/Partials/UpdateTeamDashboardForm.vue'),
 
             // Logo
-            __DIR__.'/resources/js/Jetstream/ApplicationLogo.vue' => resource_path('js/Jetstream/ApplicationLogo.vue'),
-            __DIR__.'/resources/js/Jetstream/ApplicationMark.vue' => resource_path('js/Jetstream/ApplicationMark.vue'),
-            __DIR__.'/resources/js/Jetstream/AuthenticationCardLogo.vue' => resource_path('js/Jetstream/AuthenticationCardLogo.vue'),
+            __DIR__.'/inertia/resources/js/Jetstream/ApplicationLogo.vue' => resource_path('js/Jetstream/ApplicationLogo.vue'),
+            __DIR__.'/inertia//resources/js/Jetstream/ApplicationMark.vue' => resource_path('js/Jetstream/ApplicationMark.vue'),
+            __DIR__.'/inertia/resources/js/Jetstream/AuthenticationCardLogo.vue' => resource_path('js/Jetstream/AuthenticationCardLogo.vue'),
 
             // Routes
             __DIR__.'/../stubs/inertia/routes/web.php' => base_path('routes/web.php'),
