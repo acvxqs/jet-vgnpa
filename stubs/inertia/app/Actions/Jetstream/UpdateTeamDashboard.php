@@ -24,7 +24,7 @@ class UpdateTeamDashboard implements UpdatesTeamDashboard
             'dashboard' => ['nullable', 'string', 'max:120000'],
         ])->validateWithBag('updateTeamDashboard');
 
-        $team->dashboard->forceFill([
+        $team->forceFill([
             'dashboard' => $input['dashboard'],
         ])->save();
     }

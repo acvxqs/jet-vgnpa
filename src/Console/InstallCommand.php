@@ -36,10 +36,10 @@ class InstallCommand extends Command
         (new Filesystem)->ensureDirectoryExists(app_path('Models'));
 
         // Actions...
-        copy(__DIR__.'/../../stubs/app/Actions/Jetstream/UpdateTeamDashboard.php', app_path('Actions/Jetstream/UpdateTeamDashboard.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Actions/Jetstream/UpdateTeamDashboard.php', app_path('Actions/Jetstream/UpdateTeamDashboard.php'));
         
         // Models...
-        copy(__DIR__.'/../../stubs/app/Models/Team.php', app_path('Models/Team.php'));
+        copy(__DIR__.'/../../stubs/inertia/app/Models/Team.php', app_path('Models/Team.php'));
 
         (new Process(['php', 'artisan', 'view:clear'], base_path()))
                 ->setTimeout(null)

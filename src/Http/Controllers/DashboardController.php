@@ -52,7 +52,7 @@ class DashboardController extends Controller
      */
     public function show(Request $request)
     {
-        $dashboard = $request->user()->dashboard;
+        $dashboard = $request->user()->currentTeam->dashboard;
         
         if ($dashboard) {
             $dashboard = Str::markdown($dashboard);
