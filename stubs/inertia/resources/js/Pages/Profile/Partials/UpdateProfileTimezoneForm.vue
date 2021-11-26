@@ -12,7 +12,15 @@
             <!-- Timezone -->
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="timezone" value="Timezone" />
-                <jet-timezone name="timezone" id="timezone" class="mt-1 w-full" v-model="form.timezone" :selected="form.timezone"/>
+                <select id="timezone" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" @input="$emit('update:modelValue', $event.target.value)" ref="input">
+                    <option class="display:none"></option>
+                    <option v-for="timezone in timeZonesList" :key="timezone" :value="timezone" :selected="timezone == modelValue">
+                        {{ timezone }}
+                    </option>
+                </select>
+                <div class="mt-2 text-sm font-medium text-gray-900">
+                    Guessed time zone: <span class="text-sm text-gray-500">{{ defaultTimeZone }}</span>
+                </div>
                 <jet-input-error :message="form.errors.timezone" class="mt-2" />
             </div>
         </template>
@@ -30,6 +38,9 @@
 </template>
 
 <script>
+    import moment from 'moment';
+    require('moment-timezone');
+    
     import { defineComponent } from 'vue'
     import JetButton from '@/Jetstream/Button.vue'
     import JetFormSection from '@/Jetstream/FormSection.vue'
@@ -52,7 +63,18 @@
             JetTimezone,
         },
 
-        props: ['user'],
+        computed: {
+            defaultTimeZone() {
+                return moment.tz.guess(true);
+            },
+            timeZonesList() {
+                return moment.tz.names();
+            },
+        },
+
+        props: ['user', 'modelValue'],
+
+        emits: ['modelValue'],
 
         data() {
             return {
@@ -69,6 +91,9 @@
                     errorBag: 'updateTimezoneInformation',
                     preserveScroll: true,
                 });
+            },
+            focus() {
+                this.$refs.input.focus()
             },
         },
     })

@@ -49,7 +49,6 @@ class JetVgnpaServiceProvider extends ServiceProvider
             
             // Jetstream components
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/Textarea.vue' => resource_path('js/Jetstream/Textarea.vue'),
-            __DIR__.'/../stubs/inertia/resources/js/Jetstream/Timezone.vue' => resource_path('js/Jetstream/Timezone.vue'),
 
             // Jetstream components - logo
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/ApplicationLogo.vue' => resource_path('js/Jetstream/ApplicationLogo.vue'),
