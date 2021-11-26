@@ -12,11 +12,11 @@
             <!-- Timezone -->
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="timezone" value="Timezone" />
-                <div id="timezone" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                    <select v-model="form.timezone" required>
+                <div id="timezone">
+                    <select v-model="form.timezone" required class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
                         <option disabled value="">Please select your timezone</option>
                         <option v-for="tz in timeZonesList" :key="tz" :value="tz">
-                            {{ form.timezone }}
+                            {{ tz }}
                         </option>
                     </select>
                 </div>
