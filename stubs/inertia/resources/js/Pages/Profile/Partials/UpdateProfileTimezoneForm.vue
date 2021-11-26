@@ -12,12 +12,14 @@
             <!-- Timezone -->
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="timezone" value="Timezone" />
-                <select id="timezone" v-model="timezone" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" @input="$emit('update:modelValue', $event.target.value)" ref="input">
-                    <option class="display:none"></option>
-                    <option v-for="timezone in timeZonesList" :key="timezone" :value="timezone" :selected="timezone">
-                        {{ timezone }}
-                    </option>
-                </select>
+                <div id="timezone" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                    <select v-model="timezone">
+                        <option disabled class="display:none"></option>
+                        <option v-for="timezone in timeZonesList" :key="timezone" :value="timezone" :selected="timezone">
+                            {{ timezone }}
+                        </option>
+                    </select>
+                </div>
                 <div class="mt-2 text-sm font-medium text-gray-900">
                     Guessed time zone: <span class="text-sm text-gray-500">{{ defaultTimeZone }}</span>
                 </div>
@@ -70,9 +72,7 @@
             },
         },
 
-        props: ['user', 'modelValue'],
-
-        emits: ['modelValue'],
+        props: ['user']
 
         data() {
             return {
@@ -94,5 +94,5 @@
                 this.$refs.input.focus()
             },
         },
-    })
+    }).mount('#timezone')
 </script>
