@@ -19,8 +19,8 @@ class UpdateUserContactInformation implements UpdatesUserContactInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'phone' => ['required', 'string'],
-            'tg_username' => ['required', 'string'],
+            'phone' => ['string', 'nullable'],
+            'tg_username' => ['string', 'nullable'],
         ])->validateWithBag('updateContactInformation');
 
         $user->forceFill([
