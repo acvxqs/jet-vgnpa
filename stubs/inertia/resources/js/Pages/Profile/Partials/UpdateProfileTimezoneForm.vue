@@ -49,7 +49,6 @@
     import JetLabel from '@/Jetstream/Label.vue'
     import JetActionMessage from '@/Jetstream/ActionMessage.vue'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
-    import JetTimezone from '@/Jetstream/Timezone.vue'
 
     export default defineComponent({
         components: {
@@ -60,7 +59,6 @@
             JetInputError,
             JetLabel,
             JetSecondaryButton,
-            JetTimezone,
         },
 
         computed: {
