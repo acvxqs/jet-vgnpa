@@ -4,7 +4,9 @@ namespace Acvxqs\JetVgnpa;
 
 use Acvxqs\JetVgnpa\Console\InstallCommand;
 use Acvxqs\JetVgnpa\Contracts\UpdatesTeamDashboard;
+use Acvxqs\JetVgnpa\Contracts\UpdatesUserContactInformation;
 use Acvxqs\JetVgnpa\Contracts\UpdatesUserTimezoneInformation;
+use App\Actions\Fortify\UpdateUserContactInformation;
 use App\Actions\Fortify\UpdateUserTimezoneInformation;
 use App\Actions\Jetstream\UpdateTeamDashboard;
 use Illuminate\Support\ServiceProvider;
@@ -33,6 +35,8 @@ class JetVgnpaServiceProvider extends ServiceProvider
 
         $this->app->singleton(UpdatesTeamDashboard::class, UpdateTeamDashboard::class);
         $this->app->singleton(UpdatesUserTimezoneInformation::class, UpdateUserTimezoneInformation::class);
+        $this->app->singleton(UpdatesUserContactInformation::class, UpdateUserContactInformation::class);
+
     }
 
     protected function configurePublishing()
@@ -60,6 +64,7 @@ class JetVgnpaServiceProvider extends ServiceProvider
 
             // Pages - Profile Partials
             __DIR__.'/../stubs/inertia/resources/js/Pages/Profile/Partials/UpdateProfileTimezoneForm.vue' => resource_path('js/Pages/Profile/Partials/UpdateProfileTimezoneForm.vue'),
+            __DIR__.'/../stubs/inertia/resources/js/Pages/Profile/Partials/UpdateProfileContactForm.vue' => resource_path('js/Pages/Profile/Partials/UpdateProfileContactForm.vue'),
 
             // Pages - Teams
             __DIR__.'/../stubs/inertia/resources/js/Pages/Teams/Show.vue' => resource_path('js/Pages/Teams/Show.vue'),
@@ -70,6 +75,7 @@ class JetVgnpaServiceProvider extends ServiceProvider
             //  Migrations
             __DIR__.'/../database/migrations/2021_11_25_170417_add_dashboard_to_teams.php' => database_path('migrations/2021_11_25_170417_add_dashboard_to_teams.php'),
             __DIR__.'/../database/migrations/2021_11_25_182418_add_timezone_to_users.php' => database_path('migrations/2021_11_25_182418_add_timezone_to_users.php'),            
+            __DIR__.'/../database/migrations/2021_11_26_133506_add_phone_and_tg_username_to_users.php' => database_path('migrations/2021_11_26_133506_add_phone_and_tg_username_to_users.php'),  
 
             // Routes
             __DIR__.'/../stubs/inertia/routes/web.php' => base_path('routes/web.php'),
