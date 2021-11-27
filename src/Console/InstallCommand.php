@@ -5,6 +5,7 @@ namespace Acvxqs\JetVgnpa\Console;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
+use Laravel\Jetstream\Jetstream;
 
 class InstallCommand extends Command
 {
@@ -20,7 +21,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Install VGNPA for Jetstream Inertia';
+    protected $description = 'Install VGNPA for Jetstream Inertia (with teams enabled!)';
 
     /**
      * Execute the console command.
@@ -29,6 +30,13 @@ class InstallCommand extends Command
      */
     public function handle()
     {
+        if (config('jetstream:stack') !== 'inertia') {
+            return $this->info('Sorry, but this package can only be installed on top of jetstream inertia stack.');
+        }
+        if (Jetstream::hasTeamFeatures() === false) {
+            return $this->info('Sorry, but this package is built for Jetstream Inertia with teams enabled.');
+        }
+
         // Publish...
         $this->callSilent('vendor:publish', ['--tag' => 'jet-vgnpa-assets', '--force' => true]);
 
