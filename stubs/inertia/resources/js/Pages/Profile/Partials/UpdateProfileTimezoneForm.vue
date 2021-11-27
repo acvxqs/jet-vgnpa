@@ -12,17 +12,8 @@
             <!-- Timezone -->
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="timezone" value="Timezone" />
-                <div id="timezone">
-                    <select v-model="form.timezone" required class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full">
-                        <option disabled value="">Please select your timezone</option>
-                        <option v-for="tz in timeZonesList" :key="tz" :value="tz">
-                            {{ tz }}
-                        </option>
-                    </select>
-                </div>
-                <div class="mt-2 text-sm font-medium text-gray-900">
-                    Guessed timezone: <span class="text-sm text-gray-500">{{ defaultTimeZone }}</span>
-                </div>
+                <span class="block font-medium text-xs text-gray-700">Guess: {{ defaultTimeZone }}</span>
+                <jet-select id="timezone" class="mt-1 block w-full" :option_default="form.timezone" :options="timeZonesList" v-model="form.timezone" required />
                 <jet-input-error :message="form.errors.timezone" class="mt-2" />
             </div>
         </template>
@@ -51,6 +42,7 @@
     import JetLabel from '@/Jetstream/Label.vue'
     import JetActionMessage from '@/Jetstream/ActionMessage.vue'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
+    import JetSelect from '@/Jetstream/Select.vue'
 
     export default defineComponent({
         components: {
@@ -61,6 +53,7 @@
             JetInputError,
             JetLabel,
             JetSecondaryButton,
+            JetSelect,
         },
 
         computed: {

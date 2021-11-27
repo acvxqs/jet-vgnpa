@@ -49,7 +49,8 @@ class JetVgnpaServiceProvider extends ServiceProvider
             
             // Jetstream components
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/Textarea.vue' => resource_path('js/Jetstream/Textarea.vue'),
-            
+            __DIR__.'/../stubs/inertia/resources/js/Jetstream/Select.vue' => resource_path('js/Jetstream/Select.vue'),
+
             // Needs @headlessui/vue
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/Switch.vue' => resource_path('js/Jetstream/Switch.vue'),
 
@@ -60,6 +61,9 @@ class JetVgnpaServiceProvider extends ServiceProvider
 
             // Pages
             __DIR__.'/../stubs/inertia/resources/js/Pages/Dashboard.vue' => resource_path('js/Pages/Dashboard.vue'),
+
+            // Pages - Auth
+            __DIR__.'/../stubs/inertia/resources/js/Pages/Auth/Register.vue' => resource_path('js/Pages/Auth/Register.vue'),
 
             // Pages - Profile
             __DIR__.'/../stubs/inertia/resources/js/Pages/Profile/Show.vue' => resource_path('js/Pages/Profile/Show.vue'),
