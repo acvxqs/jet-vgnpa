@@ -37,6 +37,7 @@ class InstallCommand extends Command
         (new Filesystem)->ensureDirectoryExists(app_path('Models'));
 
         // Actions...
+        copy(__DIR__.'/../../stubs/inertia/app/Actions/Fortify/CreateNewUser.php', app_path('Actions/Fortify/CreateNewUser.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Actions/Fortify/UpdateUserTimezoneInformation.php', app_path('Actions/Fortify/UpdateUserTimezoneInformation.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Actions/Fortify/UpdateUserContactInformation.php', app_path('Actions/Fortify/UpdateUserContactInformation.php'));
         copy(__DIR__.'/../../stubs/inertia/app/Actions/Jetstream/UpdateTeamDashboard.php', app_path('Actions/Jetstream/UpdateTeamDashboard.php'));
