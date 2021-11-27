@@ -49,6 +49,9 @@ class JetVgnpaServiceProvider extends ServiceProvider
             
             // Jetstream components
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/Textarea.vue' => resource_path('js/Jetstream/Textarea.vue'),
+            
+            // Needs @headlessui/vue
+            __DIR__.'/../stubs/inertia/resources/js/Jetstream/Switch.vue' => resource_path('js/Jetstream/Switch.vue'),
 
             // Jetstream components - logo
             __DIR__.'/../stubs/inertia/resources/js/Jetstream/ApplicationLogo.vue' => resource_path('js/Jetstream/ApplicationLogo.vue'),
@@ -74,7 +77,8 @@ class JetVgnpaServiceProvider extends ServiceProvider
             //  Migrations
             __DIR__.'/../database/migrations/2021_11_25_170417_add_dashboard_to_teams.php' => database_path('migrations/2021_11_25_170417_add_dashboard_to_teams.php'),
             __DIR__.'/../database/migrations/2021_11_25_182418_add_timezone_to_users.php' => database_path('migrations/2021_11_25_182418_add_timezone_to_users.php'),            
-            __DIR__.'/../database/migrations/2021_11_26_133506_add_phone_and_tg_username_to_users.php' => database_path('migrations/2021_11_26_133506_add_phone_and_tg_username_to_users.php'),  
+            __DIR__.'/../database/migrations/2021_11_26_133506_add_phone_and_tg_username_to_users.php' => database_path('migrations/2021_11_26_133506_add_phone_and_tg_username_to_users.php'), 
+            __DIR__.'/../database/migrations/2021_11_26_230745_add_allow_calls_to_users.php' => database_path('migrations/2021_11_26_230745_add_allow_calls_to_users.php'), 
 
             // Routes
             __DIR__.'/../stubs/inertia/routes/web.php' => base_path('routes/web.php'),

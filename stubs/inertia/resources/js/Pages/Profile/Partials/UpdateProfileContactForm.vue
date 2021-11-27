@@ -15,11 +15,17 @@
                 <jet-input id="phone" type="text" class="mt-1 block w-full" v-model="form.phone" autocomplete="phone" />
                 <jet-input-error :message="form.errors.phone" class="mt-2" />
             </div>
+            
+            <!-- Allow calls -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="allow_calls" value="Allow calls" />
+                <jet-switch id="allow_calls" name="allow_calls" v-model:checked="form.allow_calls" />
+            </div>
 
             <!-- Telegram -->
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="tg_username" value="Telegram ID" />
-                <jet-input id="tg_username" type="text" class="mt-1 block w-full" v-model="form.tg_username" />
+                <jet-input disabled id="tg_username" type="text" class="mt-1 block w-full" v-model="form.tg_username" />
                 <jet-input-error :message="form.errors.tg_username" class="mt-2" />
             </div>
         </template>
@@ -45,6 +51,7 @@
     import JetLabel from '@/Jetstream/Label.vue'
     import JetActionMessage from '@/Jetstream/ActionMessage.vue'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
+    import JetSwitch from '@/Jetstream/Switch.vue'
 
     export default defineComponent({
         components: {
@@ -55,6 +62,7 @@
             JetInputError,
             JetLabel,
             JetSecondaryButton,
+            JetSwitch,
         },
 
         props: ['user'],
@@ -65,6 +73,7 @@
                     _method: 'PUT',
                     phone: this.user.phone,
                     tg_username: this.user.tg_username,
+                    allow_calls: this.user.allow_calls,
                 }),
             }
         },
@@ -75,6 +84,13 @@
                     errorBag: 'updateContactInformation',
                     preserveScroll: true,
                 });
+            },
+            submit() {
+                this.form
+                    .transform(data => ({
+                        ... data,
+                        allow_calls: this.form.allow_calls ? true : false
+                    }))
             },
         },
     })

@@ -21,11 +21,13 @@ class UpdateUserContactInformation implements UpdatesUserContactInformation
         Validator::make($input, [
             'phone' => ['string', 'nullable'],
             'tg_username' => ['string', 'nullable'],
+            'allow_calls' => ['boolean'],
         ])->validateWithBag('updateContactInformation');
 
         $user->forceFill([
                 'phone' => $input['phone'],
                 'tg_username' => $input['tg_username'],
+                'allow_calls' => $input['allow_calls'],
             ])->save();
     }
 }

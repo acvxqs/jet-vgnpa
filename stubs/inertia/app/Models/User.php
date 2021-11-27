@@ -32,6 +32,7 @@ class User extends Authenticatable
         'timezone',
         'phone',
         'tg_username',
+        'allow_calls',
     ];
 
     /**
@@ -53,6 +54,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'allow_calls' => 'boolean',
     ];
 
     /**
