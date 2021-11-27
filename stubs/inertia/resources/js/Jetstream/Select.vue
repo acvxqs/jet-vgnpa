@@ -1,9 +1,11 @@
 <template>
     <select  
+        v-model="proxySelected"
         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-        @change="$emit('update:modelValue', $event.target.value)" ref="change"
+        @input="$emit('update:modelValue', $event.target.value)" ref="input"
         >
-        <option v-for="option in options" :key="option" :value="option" :selected="option == option_default">
+        <option disabled>Please select an option</option>
+        <option v-for="option in options" :key="option" :value="option">
             {{ option }}
         </option>
     </select>
@@ -12,7 +14,7 @@
     import { defineComponent } from 'vue'
 
     export default defineComponent({
-        props: ['options', 'option_default'], 
+        props: ['options', 'option_default', 'modelValue'], 
 
         emits: ['update:modelValue'],
 
@@ -23,7 +25,7 @@
         },
 
         computed: {
-            modelValue: {
+            proxySelected: {
                 get() {
                     return this.modelValue;
                 },
