@@ -8,11 +8,10 @@
 
         <div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <update-team-dashboard-form :team="team" :permissions="permissions" />
-
-                <jet-section-border />
 
                 <update-team-name-form :team="team" :permissions="permissions" />
+
+                <update-team-dashboard-form class="mt-10 sm:mt-0" :team="team" :permissions="permissions" />
 
                 <team-member-manager class="mt-10 sm:mt-0"
                             :team="team"
