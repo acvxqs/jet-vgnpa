@@ -30,7 +30,7 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        if (config('jetstream:stack') !== 'inertia') {
+        if (config('jetstream.stack') !== 'inertia') {
             return $this->info('Sorry, but this package can only be installed on top of jetstream inertia stack.');
         }
         if (Jetstream::hasTeamFeatures() === false) {
